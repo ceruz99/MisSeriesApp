@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Mis Series App</string>
+    <string name="register_form">Register Form</string>
+    <string name="email">Email</string>
+    <string name="helperText">*Required</string>
+    <string name="Reppassword">Repeat password</string>
+    <string name="password">Password</string>
+    <string name="Repassword">Confirm password</string>
+    <string name="Register">Sign Up</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="Name">Name</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+</resources>
