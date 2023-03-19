@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mis Series App</string>
+    <string name="register_form">Inscrizione</string>
+    <string name="email">Email</string>
+    <string name="helperText">*Obbligatorio</string>
+    <string name="Reppassword">Ripeta la password</string>
+    <string name="password">Password</string>
+    <string name="Repassword">Ripeta la password</string>
+    <string name="Register">Salvare</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="Name">Nome</string>
+    <string name="male">Uomo</string>
+    <string name="female">Donna</string>
+    <string name="favorite_genres">"Generosi preferiti"</string>
+    <string name="Favorite__genres">Generosi preferiti</string>
+    <string name="drama">Dramma</string>
+    <string name="Crime">Crimine</string>
+    <string name="Thriller">Thriller</string>
+    <string name="Action">Azione</string>
+    <string name="Other">Altre</string>
+    <string name="Date">Dte</string>
+    <string name="Date2">Data</string>
+    <string name="Birthdate">Data di nascita</string>
+    <string name="Origin">ORIGINE</string>
+    <string-array name="ciudades">
+        <item>Medellin</item>
+        <item>Bogota</item>
+        <item>Cali</item>
+        <item>Santa Marta</item>
+    </string-array>
+</resources>
