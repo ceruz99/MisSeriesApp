@@ -6,11 +6,28 @@
     <string name="Reppassword">Repeat password</string>
     <string name="password">Password</string>
     <string name="Repassword">Confirm password</string>
-    <string name="Register">Sign Up</string>
+    <string name="Register">Save</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="Name">Name</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="favorite_genres">"Favorite genres "</string>
+    <string name="Favorite__genres">Favorite Genres</string>
+    <string name="drama">Drama</string>
+    <string name="Crime">Crime</string>
+    <string name="Thriller">Thriller</string>
+    <string name="Action">Action</string>
+    <string name="Other">Other</string>
+    <string name="Date">Dte</string>
+    <string name="Date2">Date</string>
+    <string name="Birthdate">Birthdate</string>
+    <string name="Origin">ORIGIN</string>
+    <string-array name="ciudades">
+        <item>Medellin</item>
+        <item>Bogota</item>
+        <item>Cali</item>
+        <item>Santa Marta</item>
+    </string-array>
 </resources>

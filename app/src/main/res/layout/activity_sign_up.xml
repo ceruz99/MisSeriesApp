@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="visible"
         tools:context=".ui.signup.SignUpActivity"
@@ -101,11 +101,17 @@
                 android:padding="16dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/male_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/male" />
 
             <RadioButton
                 android:id="@+id/female_radio_button"
@@ -115,13 +121,84 @@
                 android:checked="true"
                 android:text="@string/female" />
 
-            <RadioButton
-                android:id="@+id/male_radio_button"
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/favorite_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/Favorite__genres"
+            android:textSize="20dp" />
+
+        <CheckBox
+            android:id="@+id/drama_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/drama" />
+
+        <CheckBox
+            android:id="@+id/crime_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Crime" />
+
+        <CheckBox
+            android:id="@+id/thriller_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Thriller" />
+
+        <CheckBox
+            android:id="@+id/other_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Other" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <DatePicker
+                android:id="@+id/dpFecha"
+                android:layout_width="500dp"
+                android:layout_height="400dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/date_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="showCalendar"
+                android:text="@string/Birthdate"
+                android:textSize="23sp" />
+
+            <EditText
+                android:id="@+id/date_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/male" />
+                android:ems="10"
+                android:inputType="date"
+                android:textSize="23sp" />
+
         </LinearLayout>
+
+        <EditText
+            android:id="@+id/origin_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="@string/Origin"
+            android:textSize="23sp" />
+
+        <Spinner
+            android:id="@+id/origin_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:scrollbarSize="10dp" />
 
         <Button
             android:id="@+id/register_button"
@@ -132,6 +209,14 @@
             android:layout_marginRight="10dp"
             android:text="@string/Register"
             android:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/final_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:textSize="30sp" />
 
     </LinearLayout>
 </ScrollView>
