@@ -58,7 +58,6 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         signUpBinding.registerButton.setOnClickListener {
-            Log.d("saludito", "hola")
             var nombre: String = signUpBinding.nameEditText.text.toString()
             var email: String = signUpBinding.emailEditText.text.toString()
             var password: String = signUpBinding.passwordEditText.text.toString()
