@@ -210,13 +210,13 @@
             android:text="@string/Register"
             android:textAllCaps="true" />
 
-        <EditText
-            android:id="@+id/final_edit_text"
+        <TextView
+            android:id="@+id/final_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:inputType="textMultiLine"
-            android:textSize="30sp" />
+            android:text="TextView"
+            android:textSize="23sp" />
 
     </LinearLayout>
 </ScrollView>

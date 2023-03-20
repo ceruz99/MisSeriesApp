@@ -13,14 +13,18 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.misseriesapp.R
 import com.example.misseriesapp.databinding.ActivitySignUpBinding
 import com.example.misseriesapp.ui.main.MainActivity
+import com.example.misseriesapp.ui.main.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var signUpBinding: ActivitySignUpBinding
+    private lateinit var signUpViewModel: SignUpViewModel
     var date_edit_text: EditText? = null;
     var date_button: Button? = null;
     var dpFecha: DatePicker? = null;
@@ -29,8 +33,15 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         signUpBinding = ActivitySignUpBinding.inflate(layoutInflater)
+        signUpViewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
         val view = signUpBinding.root
         setContentView(view)
+
+        //Observers
+        val datosObserver = Observer<String>{textF->
+            signUpBinding.finalTextview.text=textF
+        }
+        signUpViewModel.textF.observe(this,datosObserver)
 
         date_edit_text = findViewById(R.id.date_edit_text);
         date_button = findViewById(R.id.date_button);
@@ -53,55 +64,22 @@ class SignUpActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedCity=cities[position]
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
         signUpBinding.registerButton.setOnClickListener {
-            var nombre: String = signUpBinding.nameEditText.text.toString()
-            var email: String = signUpBinding.emailEditText.text.toString()
-            var password: String = signUpBinding.passwordEditText.text.toString()
-            var repPassword: String = signUpBinding.reppasswordEditText.text.toString()
+            signUpViewModel.datos(signUpBinding.nameEditText.text.toString(),signUpBinding.emailEditText.text.toString(), signUpBinding.passwordEditText.text.toString(),signUpBinding.reppasswordEditText.text.toString(),signUpBinding.dpFecha.dayOfMonth.toString()+"/"+(signUpBinding.dpFecha.month+1).toString()+"/"+signUpBinding.dpFecha.year)
             var genre:String;
-            if(signUpBinding.maleRadioButton.isSelected){
-                genre = "male";
+            if(signUpBinding.maleRadioButton.isChecked){
+                signUpViewModel.genres("male")
             }
             else{
-                genre = "female";
+                signUpViewModel.genres("female")
             }
-            val hobbies: Array<String> = arrayOf();
-            if(signUpBinding.crimeCheckbox.isChecked){
-                hobbies.plus("crime");
-            }
-            if(signUpBinding.thrillerCheckbox.isChecked){
-                hobbies.plus("thriller");
-            }
-            if(signUpBinding.dramaCheckbox.isChecked){
-                hobbies.plus("drama");
-            }
-            if(signUpBinding.otherCheckbox.isChecked){
-                hobbies.plus("others");
-            }
-            var fecha: String = signUpBinding.dpFecha.dayOfMonth.toString()+"/"+(signUpBinding.dpFecha.month+1).toString()+"/"+signUpBinding.dpFecha.year;
-            //val info = "Nombre: $nombre\nEmail: $email\nPassword: $password"
-            var completo: Boolean=validarCampos(nombre,email,password,repPassword);
-            var snackbar=Snackbar.make(view, "Debe llenar todos los campos", Snackbar.LENGTH_LONG)
-            var snackbar2=Snackbar.make(view, "La contraseña no es igual en los dos campos", Snackbar.LENGTH_LONG)
-            if(!completo){
+            var snackbar=Snackbar.make(view, "Debe llenar todos los campos y la contraseña debe ser igual en ambos campos", Snackbar.LENGTH_LONG)
+            if(signUpViewModel.completo.value==false){
                 snackbar.show();
             }
-            if(password!=repPassword){
-                snackbar2.show();
-            }
-            else{
-                var textF: String = nombre+"\n"+email+"\n"+password+"\n"+genre+"\n";
-                for(i in hobbies){
-                    textF+=i+" ";
-                }
-                textF+="\n"+fecha+"\n"+selectedCity;
-                signUpBinding.finalEditText.setText(textF);
-            }
-
         }
     }
 
