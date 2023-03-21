@@ -43,6 +43,8 @@ class SignUpActivity : AppCompatActivity() {
         }
         signUpViewModel.textF.observe(this,datosObserver)
 
+
+
         date_edit_text = findViewById(R.id.date_edit_text);
         date_button = findViewById(R.id.date_button);
         dpFecha = findViewById(R.id.dpFecha);
@@ -76,7 +78,7 @@ class SignUpActivity : AppCompatActivity() {
             else{
                 signUpViewModel.genres("female")
             }
-            var snackbar=Snackbar.make(view, "Debe llenar todos los campos y la contraseña debe ser igual en ambos campos", Snackbar.LENGTH_LONG)
+            var snackbar=Snackbar.make(view, signUpViewModel.mensaje.value.toString(), Snackbar.LENGTH_LONG)
             if(signUpViewModel.completo.value==false){
                 snackbar.show();
             }
@@ -94,22 +96,5 @@ class SignUpActivity : AppCompatActivity() {
     //Función para mostrar calendario al dar click en el botón
     fun showCalendar(view: View){
         dpFecha?.visibility=View.VISIBLE
-    }
-    fun validarCampos(nombre_:String,email_:String,password_:String,rePassword_:String):Boolean{
-        if(nombre_.isEmpty()){
-            return false
-        }
-        else if(email_.isEmpty()){
-            return false
-        }
-        else if(password_.isEmpty()){
-            return false
-        }
-        else if(rePassword_.isEmpty()){
-            return false
-        }
-        else{
-            return true
-        }
     }
 }
