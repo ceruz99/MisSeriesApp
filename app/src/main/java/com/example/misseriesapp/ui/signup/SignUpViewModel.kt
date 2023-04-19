@@ -2,8 +2,10 @@ package com.example.misseriesapp.ui.signup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.misseriesapp.data.UserRepository
 import com.example.misseriesapp.databinding.ActivitySignUpBinding
 
+private val userRepository = UserRepository()
 class SignUpViewModel : ViewModel(){
     val textF : MutableLiveData<String> by lazy {
         MutableLiveData<String>()
@@ -23,6 +25,7 @@ class SignUpViewModel : ViewModel(){
         if((nombre.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && rePassword.isNotEmpty()) && password==rePassword && completoCorreo){
             textF.value+=nombre+"\n"+email+"\n"+password+"\n"+rePassword+"\n"+fecha+"\n";
             completo.value=true;
+            userRepository.signUpUser(email, password)
         }
         else if(completoCorreo==false){
             mensaje.value="Correo mal escrito"

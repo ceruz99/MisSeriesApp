@@ -38,10 +38,10 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(view)
 
         //Observers
-        val datosObserver = Observer<String>{textF->
+        //val datosObserver = Observer<String>
+        signUpViewModel.textF.observe(this){textF->
             signUpBinding.finalTextview.text=textF
         }
-        signUpViewModel.textF.observe(this,datosObserver)
 
 
 
